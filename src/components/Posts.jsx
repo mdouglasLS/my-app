@@ -1,10 +1,16 @@
 import { Post } from "./Post";
-import { posts } from "../posts.json";
+import   AllPosts   from "../posts.json";
 
 export function Posts(){
     return(
         <ul>
-            <Post title={posts[0].title} description={posts[0].description}/>
+            {
+                AllPosts.posts.map( post => {
+                    return(
+                        <Post title={ post.title } description={ post.description } id={ post.id }/>
+                    )
+                })
+            }
         </ul>
     )
 };
